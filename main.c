@@ -60,7 +60,7 @@ void imprimeMenu() {
     printw("2 - Como jogar\n");
 
     FILE *save = fopen(NOME_SAVE, "r");
-    if (save) printw("3 - Continuar jogo\n\n");
+    if (save) printw("3 - Continuar jogo\n");
 
     printw("\n0 - Sair\n\n");
     
