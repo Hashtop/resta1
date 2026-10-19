@@ -53,3 +53,11 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Pastas
+.vscode
+Bugs
+
+# Saves e binário
+save.tab
+trab1
