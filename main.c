@@ -16,6 +16,7 @@ No código, a localização dos 1s define a posição das peças. E os zeros, os
 #include <unistd.h> // Pelo sleep
 #include <locale.h> // Pela verificação de UTF-8 no terminal, garantindo caracteres especiais.
 #include "globals.h"
+#include <string.h>
 
 
 #define GANHOU 0
@@ -59,7 +60,7 @@ void imprimeMenu() {
     printw("2 - Como jogar\n");
 
     FILE *save = fopen(NOME_SAVE, "r");
-    if (save) printw("3 - Continuar jogo\n");
+    if (save) printw("3 - Continuar jogo\n\n");
 
     printw("\n0 - Sair\n\n");
     
@@ -94,6 +95,28 @@ int main(int argc, char **argv)
     keypad(stdscr, TRUE);
 
     int saindo = 0;
+
+    if (argc > 1) {
+        char argvProcessado[strlen(argv[1])];
+        
+        // Remove as aspas do caminho.
+        int i = 0, iProcess = 0;
+        while (argv[1][i] != '\0') {
+            if (argv[1][i] != '"') {
+                argvProcessado[iProcess] = argv[1][i];
+                iProcess++;
+            }
+            i++;
+        }
+        argvProcessado[iProcess] = '\0';
+
+        FILE *arqExiste = fopen(argv[1], "r");
+        if (arqExiste) {
+            saindo = 1;
+            
+            jogar(argv[1]);
+        }
+    }
 
     while (!saindo) {
         clear();
