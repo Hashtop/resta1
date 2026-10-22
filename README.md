@@ -1,4 +1,6 @@
 # resta1
+[![CodeFactor](https://www.codefactor.io/repository/github/hashtop/resta1/badge)](https://www.codefactor.io/repository/github/hashtop/resta1)
+
 Uma implementação **(NÃO-VIBECODADA e ROBUSTA)** do jogo Resta Um em C (com NCurses/Linux).
 
 Funciona principalmente utilizando estruturas, passagem por referência e alocação dinâmica de memória.
